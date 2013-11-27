@@ -32,37 +32,17 @@ def login_view(request):
 def logout_view(request):
         logout(request)
         return HttpResponseRedirect('/')
+        
 
 def gestion_users_view(request):
 	if request.user.is_authenticated():
 		if request.user.is_staff:
-			users = Usuario.objects.all()
+			users = Users.objects.all()
 			return render_to_response('users.html',ctx,context_instance=RequestContext(request))
 		else:
 			return HttpResponseRedirect('/')
 	else:
 		return HttpResponseRedirect('/')
-
-
-def edit_logro_view(request,id_logro):
-        try:                
-            logro = Logro.objects.get(idLogro = id_logro)
-            if request.method == 'POST':
-                if logro:
-                    asig = request.POST['asignatura']
-                    nombre = request.POST['nombre']
-                    descripcion = request.POST['descripcion']
-                    asignatura = Asignatura.objects.get(nombre = asig)
-                    logro.idAsignatura = asignatura
-                    logro.nombre = nombre
-                    logro.descripcion = descripcion
-                    logro.save()
-                    return HttpResponseRedirect('/')
-            asignaturas = Asignatura.objects.filter(activo = True)
-            ctx = {'logro':logro, 'asignaturas':asignaturas}
-            return render_to_response('edit_logro.html',ctx,context_instance=RequestContext(request))
-    	except Logro.DoesNotExist:
-            return HttpResponseRedirect("/")
 
 
 def edit_user_view(request,id_user):
@@ -98,7 +78,3 @@ def register_view(request):
 		        u.save()
 		        return render_to_response('succes_register.html',context_instance=RequestContext(request))
 		    else:
-		        ctx = {'form':form}
-		        return render_to_response('registro.html',ctx,context_instance=RequestContext(request))
-			ctx = {'form':form}
-			return render_to_response('registro.html',ctx,context_instance=RequestContext(request))

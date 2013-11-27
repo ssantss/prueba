@@ -9,8 +9,27 @@
 	</title>
 	<link rel="stylesheet" type="text/css" href="/media/css/estilos.css">
 	<script src="/media/js/validaciones.js"></script>	
+	<script src="/media/js/jquery.js"></script>
 </head>
 <body>
+	<nav>
+		<ul>
+			{% if user.is_authenticated %}
+				{% if user.is_staff %}
+					<li>
+						<div class="usuarios">
+					 		<a href="{% url 'gestion_users_view' %}" class="link">Usuarios</a>
+					 	</div>
+					</li>
+				{% endif %}
+					<li>
+						<div class="salir">
+					 		<a href="{% url 'logout_view' %}" class="link">Salir</a>
+					 	</div>
+					</li>
+			{% endif %}
+		</ul>
+	</nav>
 	<div class='contenido'>	
 	{% block content %}
 	{% endblock %}

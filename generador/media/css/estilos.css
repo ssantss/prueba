@@ -41,3 +41,22 @@ a:active, a:visited, a:link, a:hover {
 .iniciar{
 	padding: 150px;
 }
+
+.option{
+	text-align: center;
+	border-right-style: solid;
+	border-right-color: black;
+	width: 30%;
+}
+
+.content_user{
+	text-align: center;
+	border-left-style: solid;
+	border-left-color: red;
+	width: 700px;
+	height: 1000px;
+}
+
+select{
+	width: 180px;
+}
