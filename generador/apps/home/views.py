@@ -54,9 +54,21 @@ def register_view(request):
 def gestion_users_view(request):
 	if request.user.is_authenticated():
 		if request.user.is_staff:
-			users = Usuario.objects.all()
-			return render_to_response('users.html',ctx,context_instance=RequestContext(request))
+			users = User.objects.all()
+			return render_to_response('admin_usuario.html',locals(),context_instance=RequestContext(request))
 		else:
 			return HttpResponseRedirect('/')
 	else:
 		return HttpResponseRedirect('/')
+
+def users_view(request, username):
+	if request.user.is_authenticated():
+		if request.user.is_staff:
+			print 'hola como estas '+str(username)
+			usuario = User.objects.get(username= username)			
+			return render_to_response('usuarios.html',locals(),context_instance=RequestContext(request))
+		else:
+			return HttpResponseRedirect('/')
+	else:
+		return HttpResponseRedirect('/')
+

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Pagina principal
+{% endblock %}
+
+{% block content %}
+<div>
+        <div class="salir">
+                <a href="{% url 'login_view' %}" class="link">Regresar</a>
+        </div>
+        <h1 class="titulo">Administracion de usuarios</h1>
+
+        <div class="option">
+                <h4>Usuarios</h4>
+                <select  class="select" id="option_selected" onchange="option_selected(this)" size="20">
+                        <option selected>Elije una opción</option>
+                        {% if users %}
+                                {% for u in users %}
+                                        <option >{{u.username}}</option>
+                                {% endfor %}
+                        {% else %}
+                                <h2>No hay Usuarios</h2>
+                        {% endif %}
+        </div>
+
+        <div id="content_to_pop" class="content_user">  
+                <h1>Usuarios</h1>
+                <p>hola como estassadjfnasdkjkfnakcmkmdkgnaskgnaflkgnfdkngfls</p>              
+        </div>
+
+</div>
+{% endblock %}
