@@ -1,0 +1,43 @@
+body{
+	background-color: #999999;
+	padding: 30px;
+	font-size: 20px;			
+}
+
+a{
+	font-size: 18px;
+}
+
+.link{
+	padding: 5px 15px 5px 15px;			
+	border-style: solid;
+	border-width: 2px;
+	border-color: silver;
+	background-color: aqua;
+	border-radius: 20%;	
+	box-shadow: 0px 0px 15px #000;
+		}		
+
+a:active, a:visited, a:link, a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.titulo{
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+.salir{
+	position: absolute;
+	left: 80%;
+}
+
+.usuarios{
+	position: absolute;
+	left: 70%;
+}
+
+.iniciar{
+	padding: 150px;
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+Pagina principal
+{% endblock %}
+
+{% block content %}
+<div>
+	<div class="salir">
+ 		<a href="{% url 'logout_view' %}" class="link">Salir</a>
+ 	</div>
+ 	<div class="usuarios">
+ 		<a href="#" class="link">Usuarios</a>
+ 	</div>
+</div>
+	
+ 	<h1 class="titulo">Pagina principal</h1>
+
+{% endblock %}
