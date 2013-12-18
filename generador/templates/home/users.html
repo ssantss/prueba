@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1 class="titulo">Usuarios</h1>
+<div>
+	<a href="{% url 'login_view' %}" class="link" id="regresar">Pagina Principal</a>
+</div>
+<div class="users">
+	{% if users %}
+		{% for u in users %}
+			<a href="/admin/user/{{u.id}}">{{u.username}}</a>
+			<br><br>
+		{% endfor %}
+	{% else %}
+		<h2>no existen usuarios</h2>
+	{% endif %}
+	<a href="/register_new_user/" class="link">Crear nuevo usuario</a>
+</div>	
+{% endblock content %}

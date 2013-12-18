@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block content %}
+<style type="text/css">
+	label{
+		float: left;
+	}
+
+	input{
+		float: right;
+	}
+
+	.checkbox{
+		float: left;
+		margin-left: 100px;
+	}
+
+</style>
+<h1 class="titulo">Editar Usuario</h1>
+<div>
+	<a href="{% url 'gestion_users_view' %}" class="link" id="regresar">Regresar</a>
+</div>
+<div class="users">
+	<form method="POST" action="." onsubmit="return val_edit_user();">
+		{% csrf_token %}
+		<label>Nombre de Usuario: </label>
+		{{usuario.username}}<br><br>
+		<label>Email:</label>
+		<input type="email" value="{{usuario.email}}" id="email" name="email"><br><br>
+		<label>Nombre:</label>
+		<input type="text" value="{{usuario.first_name}}" id="firstname" name="first_name" required /><br><br>
+		<label>Password:</label>
+		<input type="password" value="{{usuario.password}}" id="passwordone" name="password_one" required /><br><br>
+		<label>Confirmar Password:</label>
+		<input type="password" value="{{usuario.password}}" id="passwordtwo" name="password_two" required /><br><br>
+		<label>es super usuario?  </label>
+		{% if usuario.is_staff %}
+			<input type="checkbox" name="super" value="1" checked class="checkbox">
+		{% else %}
+			<input type="checkbox" name="super" value="1" class="checkbox">
+		{% endif %}
+		<br><br><br>
+		<input type="submit" value="guardar" class="link">
+	</form>
+</div>
+{% endblock content %}

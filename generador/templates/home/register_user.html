@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<style type="text/css">
+	label{
+		float: left;
+	}
+
+	input{
+		float: right;
+	}
+
+	.checkbox{
+		float: left;
+		margin-left: 100px;
+	}
+
+</style>
+<h1 class="titulo">Nuevo Usuario</h1>
+<div>
+	<a href="{% url 'gestion_users_view' %}" class="link" id="regresar">Regresar</a>
+</div>
+<div class="users">
+	<form method="POST" action="." onsubmit="return val_new_user();">
+		{% csrf_token %}
+		<label>Nombre de Usuario:</label>
+		<input type="text" name="username" id="username" required /><br><br>
+		<label>Nombre:</label>
+		<input type="text" name="first_name" id="firstname" required /><br><br>
+		<label>Email:</label>
+		<input type="email" name="email" id="email" required /><br><br>
+		<label>Password:</label>
+		<input type="password" name="password_one" id="passwordone" required /><br><br>
+		<label>Confirmar Password:</label>
+		<input type="password" name="password_two" id="passwordtwo" required /><br><br>
+		<label>es super usuario?  </label>
+		<input type="checkbox" name="super" value="1" class="checkbox"/>
+		<br><br><br>
+		<input type="submit" value="Registrar" class="link"/>
+		<input type="reset" value="Cancelar" class="link"/>	
+	</form>		
+</div>
+				
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Registro Satisfactorio{% endblock title %}
+{% block content %}
+<h1 class="titulo">Nuevo Usuario</h1>
+<div class="users">
+	<h2>El usuario ya esta registrado</h2>
+	<a href="{% url 'gestion_users_view' %}" class="link" id="regresar">Regresar</a>
+</div>
+{% endblock content %}

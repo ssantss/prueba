@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Contraseñas no coinciden{% endblock title %}
+{% block content %}
+<h1 class="titulo">Nuevo Usuario</h1>
+<div class="users">
+	<h2>las contraseñas no coinciden</h2>
+	<a href="{% url 'gestion_users_view' %}" class="btn btn-primary">Volver</a>
+</div>
+{% endblock content %}

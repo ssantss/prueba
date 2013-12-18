@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="titulo">Usuario</h1>
+
+<div>
+	<a href="{% url 'gestion_users_view' %}" class="link" id="regresar">Regresar</a>
+</div>
+<div class="users">
+	<h3>Username:</h3>
+	{{usuario.username}}
+	<h3>Nombre:</h3>
+	{{usuario.first_name}}
+	<h3>Email:</h3>
+	{{usuario.email}}
+	<h3>Registrado desde:</h3>
+	{{usuario.date_joined}}
+	<h3>Ultimo inicio de sesion</h3>
+	{{usuario.last_login}}
+	<br><br>
+
+	<a href="/edit/user/{{usuario.id}}" class="link">Editar</a>
+	<a href="/delete/user/{{usuario.id}}" onClick="return confirm('se eliminaran todos los datos asociados al usuario. Desea Continuar?');" class="link">Eliminar</a>
+</div>
+
+{% endblock content %}

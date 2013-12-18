@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="titulo">Generacion</h1>
+
+<form method="post" action="." enctype="multipart/form-data">
+	{% csrf_token %}
+	<input type="file" name="archivo">
+	<input type="submit" value="Cargar">
+</form>
+
+
+{% endblock content %}
