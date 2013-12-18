@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -7,6 +7,7 @@
 		
 		{% endblock %}
 	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="/media/css/estilos.css">
 	<script src="/media/js/validaciones.js"></script>	
 	<script src="/media/js/jquery.js"></script>
@@ -15,6 +16,11 @@
 	<nav>
 		<ul>
 			{% if user.is_authenticated %}
+				<li>
+					<div class="salir">
+				 		<a href="{% url 'logout_view' %}" class="link">Salir</a>
+				 	</div>
+				</li>
 				{% if user.is_staff %}
 					<li>
 						<div class="usuarios">
@@ -22,11 +28,11 @@
 					 	</div>
 					</li>
 				{% endif %}
-					<li>
-						<div class="salir">
-					 		<a href="{% url 'logout_view' %}" class="link">Salir</a>
-					 	</div>
-					</li>
+				<li>
+					<div class="salir">
+				 		<a href="{% url 'vista_upload' %}" class="link">Generar Codigo</a>
+				 	</div>
+				</li>
 			{% endif %}
 		</ul>
 	</nav>
